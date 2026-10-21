@@ -1,0 +1,17 @@
+// Cairn sample: reads a bound and sums every number below it.
+// Phase 1 only scans this file; execution arrives in Phase 4.
+
+let limit = input;
+let total = 0;
+let i = 1;
+
+while (i <= limit) {
+    total = total + i;
+    i = i + 1;
+}
+
+if (total > 100) {
+    print true;
+} else {
+    print total;
+}

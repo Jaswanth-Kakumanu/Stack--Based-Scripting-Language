@@ -1,0 +1,12 @@
+// Deliberately malformed syntax: exercises panic-mode recovery.
+// Expect three diagnostics, and note that the well-formed statements
+// between them still parse.
+
+let a = 1
+print a;
+
+let = 2;
+print a + 1;
+
+1 + 2 = 3;
+print a * 2;

@@ -1,0 +1,10 @@
+# Each suite is its own executable; a crash in one cannot hide the other.
+foreach(suite test_lexer_valid test_lexer_errors test_parser_valid test_parser_errors test_compiler_valid test_compiler_errors test_vm_valid test_vm_errors)
+    add_executable(${suite} ${suite}.cpp)
+    target_link_libraries(${suite} PRIVATE cairn_core)
+    target_include_directories(${suite} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    if(NOT MSVC)
+        target_compile_options(${suite} PRIVATE -Wall -Wextra)
+    endif()
+    add_test(NAME ${suite} COMMAND ${suite})
+endforeach()

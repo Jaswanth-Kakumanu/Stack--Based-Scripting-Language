@@ -1,0 +1,18 @@
+// Benchmark workload: a tight arithmetic loop, no I/O.
+// Run with: cairn --bench 200 examples/bench.cairn
+//
+// Build the switch variant to compare dispatch strategies:
+//   cmake -S . -B build-switch -DCMAKE_BUILD_TYPE=Release -DCAIRN_FORCE_SWITCH=ON
+
+let i = 0;
+let acc = 0;
+
+while (i < 200000) {
+    acc = acc + i * 2 - 1;
+    if (acc > 1000000000) {
+        acc = acc - 1000000000;
+    }
+    i = i + 1;
+}
+
+print acc;

@@ -1,0 +1,7 @@
+// Deliberately malformed: exercises the error path.
+// Expect four diagnostics from `cairn examples/broken.cairn`.
+
+let x = @;
+let 123abc = 4;
+let big = 9223372036854775808;
+/* this comment is never closed

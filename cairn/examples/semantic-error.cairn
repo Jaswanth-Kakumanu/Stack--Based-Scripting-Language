@@ -1,0 +1,12 @@
+// Well-formed syntax, invalid semantics: exercises the compiler's checks.
+// Expect three diagnostics, none of them from the lexer or parser.
+
+let a = 1;
+let a = 2;
+
+print undefined_name;
+
+{
+    let scoped = 3;
+}
+print scoped;
